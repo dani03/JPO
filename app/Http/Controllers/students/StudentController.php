@@ -17,16 +17,19 @@ class StudentController extends Controller
     }
 
     public function index(){
-        $students = Student::all()->sortByDesc('point');
+        $students = Student::all()->sortBy(['temps'])->sortByDesc('point');
         return view('students.index', compact('students'));
      }
      public function score(Request $request){
+         
+         $time = strtotime($request->timer);  
+         $newformat = date('i:s',$time);
     
          $questionsUsers = $request->question;
          $reponseUsers = $request->user;
          $pointUser = 0;
          $somme = 0;
-         $nbTours =0;
+         $nbTours = 0;
          foreach ($questionsUsers as $question => $pointQuestion) {
             // dd($questionsUsers);
             foreach ($request->user as $questionRepondu => $reponseUser) {
@@ -34,13 +37,9 @@ class StudentController extends Controller
                     $theQuestion = Question::where('title', $question)->get();
                     foreach ($theQuestion as $value) {
                         if($reponseUser === $value->reponse){
-                            $pointUser += $pointQuestion;
-                            
-                        }
-                        
-                    }
-
-                    
+                            $pointUser += $pointQuestion;                          
+                        }   
+                    }               
                 }
             }
              $somme += $pointQuestion;
@@ -54,12 +53,13 @@ class StudentController extends Controller
         $students = Student::where('name',$name)->get();
         foreach ($students as $student) {
            $student->point =  $pointUser; 
+           $student->temps =  $newformat; 
            $student->save();
            
         }
         $questions = Question::all();
 
-        Session::flash('note', $pointUser); 
+        Session::flash('note', $pointUser ); 
         Session::flash('somme', $somme);
         Session::flash('message', 'ok');
         Session::flash('name', $request->name);

@@ -19,6 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('email');
             $table->string('telephone');
             $table->string('point');
+            $table->time('temps')->nullable();
             $table->timestamps();
         });
     }

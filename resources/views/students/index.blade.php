@@ -37,7 +37,8 @@
               <thead class="bg-gray-800 text-white">
                 <tr>
                   <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Nom </th>
-                  <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">PointS</th>
+                  <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Points</th>
+                  <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">temps</th>
                   <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</th>
                  
                 </tr>
@@ -48,6 +49,7 @@
               <tr>
                 <td class="w-1/3 text-left py-3 px-4 {{$loop->first ? "bg-yellow-300" : "" }} {{$loop->iteration % 2 == 0 ? "bg-gray-100" : "" }}">{{$student->name}}</td>
                 <td class="w-1/3 text-left py-3 px-4 {{$loop->first ? "bg-yellow-300" : "" }} {{$loop->iteration % 2 == 0 ? "bg-gray-100" : "" }}">{{$student->point}}</td>
+                <td class="w-1/3 text-left py-3 px-4 {{$loop->first ? "bg-yellow-300" : "" }} {{$loop->iteration % 2 == 0 ? "bg-gray-100" : "" }}">{{$student->temps}}</td>
                 
                 <td class="w-1/3 text-left py-3 px-4 text-green-700 {{$loop->first ? "bg-yellow-300" : "" }} {{$loop->iteration % 2 == 0 ? "bg-gray-100" : "" }}">{{$student->email}}</td>
               </tr>
