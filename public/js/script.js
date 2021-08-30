@@ -1,24 +1,5 @@
 //counter
-var timer = document.getElementById('timer');
-var secondes = 0;
-function startTimer(){
-  console.log('ok')
-  while(endTimer()){
-    secondes++;
-    timer.textContent = secondes;
-    console.log(timer)
-  }
 
-
-}
-
-function endTimer() {
-  document.getElementById('#terminer').addEventListener('click', () => {
-      return false;
-  })
-
-  return true;
-}
 
 //-------------------------------
 var allquestions = document.querySelectorAll('.theQuestion');
@@ -86,5 +67,23 @@ lastButton.addEventListener('click',(e)=> {
   }
   
   
+});
+
+//counter
+function timer() {
+
+  var minutes = Math.floor(totalSecs / 60);
+  var secondes = totalSecs % 60;
+  if(secondes <= 9) secondes = "0" + secondes;
+  if(minutes <= 9) minutes = "0" + minutes;
+  totalSecs++;
+
+  document.getElementById('timer').textContent = minutes + ":" + secondes;
+  setTimeout('timer()', 1000);
+}
+totalSecs = 0;
+
+window.addEventListener('load', (e) => {
+      timer();
 });
 
