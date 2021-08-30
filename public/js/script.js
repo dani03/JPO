@@ -78,7 +78,8 @@ function timer() {
   if(minutes <= 9) minutes = "0" + minutes;
   totalSecs++;
 
-  document.getElementById('timer').textContent = minutes + ":" + secondes;
+  document.getElementById('timer').value = minutes + ":" + secondes;
+  document.getElementById('timer2').value = "00:"+ minutes + ":" + secondes;
   setTimeout('timer()', 1000);
 }
 totalSecs = 0;

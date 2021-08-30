@@ -6,9 +6,8 @@
 
 
         <title>JPO</title>
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <!-- Fonts -->
 
+        <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <!-- Styles -->
@@ -25,7 +24,8 @@
     <body class="antialiased w-full h-full">
       <form id="questionsCard" class=" relative w-auto h-2/3 m-10 p-2 bg-gray-100 border border-indigo-400 rounded grid items-center justify-center" action="{{route('student.score')}}" method="post">
         @csrf
-        <input class="flex justify-center" id='timer' value="timer">
+        <input class="flex justify-center" type="button"  value=""  id='timer' name="user[time]">
+        <input type="hidden" name="timer" id="timer2" value="">
         @foreach ($questions as $question)
       
         <div  class=" {{$loop->first ? '' : 'hidden'}} bg-white m-4 border border-red-200 p-4 theQuestion">
@@ -44,6 +44,7 @@
                 <input type="radio" id="user[{{$reponse->id}}]"  name="user[{{$question->title}}]" id="choice1" value="{{$reponse->title}}">
                 <label for="user[{{$reponse->id}}]">{{$reponse->title}}</label><br>
                 <input type="hidden" name="name" value="{{$name}}">
+                
               </div> 
              
               @endif
