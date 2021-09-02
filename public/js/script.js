@@ -3,11 +3,11 @@
 
 //-------------------------------
 var allquestions = document.querySelectorAll('.theQuestion');
-console.log(allquestions[2]);
+
 
 var nextButton = document.querySelector('#next');
 var lastButton = document.querySelector('#last');
-console.log(nextButton, lastButton)
+
 var lengthArray = allquestions.length;
 
 
@@ -16,7 +16,6 @@ nextButton.addEventListener('click',(e)=> {
   e.preventDefault();
   if ( i < allquestions.length-1) {
     if(!allquestions[i].classList.contains('hidden')){
-      console.log(i+ " debut");
       allquestions[i].classList.add('hidden');
       allquestions[i+1].classList.remove('hidden');
      
@@ -27,7 +26,6 @@ nextButton.addEventListener('click',(e)=> {
       allquestions[i+1].classList.add('hidden');
       i++;
     }
-    console.log("..."+i)
   } else {
     var terminer = document.querySelector('#valider');
     if(terminer.classList.contains('hidden')) {
@@ -46,7 +44,6 @@ lastButton.addEventListener('click',(e)=> {
   e.preventDefault();
   if ( i >= 0) {
     if(!allquestions[i].classList.contains('hidden')){
-      console.log(i+ " debut................");
       allquestions[i-1].classList.remove('hidden');
       allquestions[i].classList.add('hidden');
       i--;
@@ -55,7 +52,7 @@ lastButton.addEventListener('click',(e)=> {
       allquestions[i].classList.remove('hidden');
       i--;
     }
-    console.log("..."+i)
+
   } else {
     var terminer = document.querySelector('#valider');
     if(terminer.classList.contains('hidden')) {

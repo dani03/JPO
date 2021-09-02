@@ -23,8 +23,8 @@ class StudentController extends Controller
      public function score(Request $request){
          
          $time = strtotime($request->timer);  
-         $newformat = date('i:s',$time);
-    
+         $newformat = date('i:s.u',$time);
+        //  dd($newformat);
          $questionsUsers = $request->question;
          $reponseUsers = $request->user;
          $pointUser = 0;

@@ -60,7 +60,7 @@
         {{-- ----------------------------------------------------- --}}
         @endforeach
         <div class="row hidden" id="valider">
-          <div class="col-md-12 text-center mt-8 border">
+          <div class="col-md-12 text-center mt-8 border boder-indigo-500">
             <button id="terminer" class="btn btn-success" onclick="endTimer()" type="submit">Terminer</button>
           </div>
         </div>
