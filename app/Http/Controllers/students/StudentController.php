@@ -31,20 +31,26 @@ class StudentController extends Controller
          $somme = 0;
          $nbTours = 0;
          foreach ($questionsUsers as $question => $pointQuestion) {
-            // dd($questionsUsers);
-            foreach ($request->user as $questionRepondu => $reponseUser) {
-                if($question == $questionRepondu) {
+             foreach ($request->user as $questionRepondu => $reponseUser) {
+                 
+                 
+                 if($question === $questionRepondu) {
+                     // dd($pointQuestion);
+                    //  dd($request->user, $questionsUsers );
                     $theQuestion = Question::where('title', $question)->get();
                     foreach ($theQuestion as $value) {
-                        if($reponseUser === $value->reponse){
-                            $pointUser += $pointQuestion;                          
-                        }   
+                    
+                        if($reponseUser == $value->reponse){
+                            $pointUser += $pointQuestion;
+                                                    
+                        } 
+                          
                     }               
                 }
             }
-             $somme += $pointQuestion;
-             $nbTours++;
-             
+            $somme += $pointQuestion;
+            $nbTours++;
+            
         }  
         
         $moyenne = $somme / $nbTours;
