@@ -34,9 +34,9 @@
           @endif
           <div class="flex justify-around m-4 ">
             <button class="btn btn-info text-center mb-2"><a href="{{route('accueil')}}"> accueil</a></button>
-            @auth
+            
             <button class="btn btn-info text-center mb-2"><a href="{{route('students.list')}}"> voir les notes des candidats</a></button>          
-            @endauth
+           
           </div>
           <div class="shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white">
