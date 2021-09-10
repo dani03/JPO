@@ -44,7 +44,7 @@
                 <tr>
                   <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">La Question </th>
                   <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Votre Reponse</th>
-                  <th class="text-left py-3 px-4 uppercase font-semibold text-sm">La reponse Exact</th>
+                  <th class="text-left py-3 px-4 uppercase font-semibold text-sm">La reponse Exacte</th>
                  
                 </tr>
               </thead>
